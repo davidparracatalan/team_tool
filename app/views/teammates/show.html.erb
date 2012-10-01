@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Eci Id:</b>
+  <%= @teammate.eci_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @teammate.name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%= @teammate.last_name %>
+</p>
+
+<p>
+  <b>Contracting company</b>
+  <%= @teammate.contracting_company %>
+</p>
+
+<p>
+  <b>Subcontracting company</b>
+  <%= @teammate.subcontracting_company%>
+</p>
+
+
+<%= link_to 'Edit', edit_teammate_path(@teammate), class: "btn" %>

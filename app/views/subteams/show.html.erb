@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @subteam.name %>
+</p>
+
+<p>
+  <b>Start date:</b>
+  <%= @subteam.start_date %>
+</p>
+
+<p>
+  <b>Foreseen end date:</b>
+  <%= @subteam.foreseen_end_date %>
+</p>
+
+<p>
+  <b>End date:</b>
+  <%= @subteam.end_date %>
+</p>
+
+
+<%= link_to 'Edit', edit_subteam_path(@subteam) %> |
+<%= link_to 'Back', subteams_path %>

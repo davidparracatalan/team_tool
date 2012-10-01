@@ -1,0 +1,26 @@
+# == Schema Information
+#
+# Table name: subteams
+#
+#  id                :integer          not null, primary key
+#  name              :string(255)
+#  start_date        :datetime
+#  foreseen_end_date :datetime
+#  end_date          :datetime
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  start_date: 2012-09-30 00:36:17
+  foreseen_end_date: 2012-09-30 00:36:17
+  end_date: 2012-09-30 00:36:17
+
+two:
+  name: MyString
+  start_date: 2012-09-30 00:36:17
+  foreseen_end_date: 2012-09-30 00:36:17
+  end_date: 2012-09-30 00:36:17

@@ -1,0 +1,24 @@
+<%= form_for @teammate do |f| %>
+  <% if @teammate.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@teammate.errors.count, "error") %> prohibited this teammate from being saved:</h2>
+
+      <ul>
+      <% @teammate.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <%= f.label :eci_id, 'ECI Id', :html=>{:class=>'contol-label'}  %>
+    <%= f.text_field :eci_id, :html=>{:class=>'contol-label'}  %>
+    <%= f.label :name, :html=>{:class=>'contol-label'} %>
+    <%= f.text_field :name %>
+    <%= f.label :last_name, :html=>{:class=>'contol-label'}  %>
+    <%= f.text_field :last_name %>
+    <%= f.label :contracting_company, :html=>{:class=>'contol-label'}  %>
+    <%= f.text_field :contracting_company %>
+    <%= f.label :subcontracting_company, :html=>{:class=>'contol-label'}  %>
+    <%= f.text_field :subcontracting_company  %><br />
+    <%= f.submit %>
+<% end %>

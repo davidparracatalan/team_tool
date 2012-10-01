@@ -1,0 +1,29 @@
+<div class="page-header">
+  <h1>Listing teammates</h1>
+</div>
+
+<table class="table table-bordered">
+  <tr>
+    <th>Eci Id</th>
+    <th>Name</th>
+    <th>Last name</th>
+    <th>Contracting company</th>
+    <th>Subcontracting company</th>
+    <th></th>
+  </tr>
+
+  <% @teammates.each do |teammate| %>
+    <tr>
+      <td><%= teammate.eci_id %></td>
+      <td><%= teammate.name %></td>
+      <td><%= teammate.last_name %></td>
+      <td><%= teammate.contracting_company %></td>
+      <td><%= teammate.subcontracting_company  %></td>
+      <td><%= link_to '', teammate, class: "icon-arrow-right" %></td>
+      <td><%= link_to '', edit_teammate_path(teammate), class: "icon-edit" %></td>
+      <td><%= link_to '', teammate, method: :delete, data: { confirm: 'Are you sure?' }, class: "icon-trash" %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'New Teammate', new_teammate_path, class: "btn btn-large" %>
