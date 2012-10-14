@@ -10,8 +10,8 @@
       </ul>
     </div>
   <% end %>
-    <%= f.label :eci_id, 'ECI Id', :html=>{:class=>'contol-label'}  %>
-    <%= f.text_field :eci_id, :html=>{:class=>'contol-label'}  %>
+    <%= f.label :eciidentifier, 'ECI Id', :html=>{:class=>'contol-label'}  %>
+    <%= f.text_field :eciidentifier, :html=>{:class=>'contol-label'}  %>
     <%= f.label :name, :html=>{:class=>'contol-label'} %>
     <%= f.text_field :name %>
     <%= f.label :last_name, :html=>{:class=>'contol-label'}  %>
@@ -21,4 +21,5 @@
     <%= f.label :subcontracting_company, :html=>{:class=>'contol-label'}  %>
     <%= f.text_field :subcontracting_company  %><br />
     <%= f.submit %>
+    <%= link_to '', root_path, class: "icon-home"%>
 <% end %>

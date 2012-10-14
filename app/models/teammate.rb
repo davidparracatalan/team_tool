@@ -2,16 +2,25 @@
 #
 # Table name: teammates
 #
-#  id                     :integer          not null, primary key
-#  eci_id                 :string(255)
+#  id                     :integer         not null, primary key
+#  eciidentifier          :string(255)
 #  name                   :string(255)
 #  last_name              :string(255)
-#  created_at             :datetime         not null
-#  updated_at             :datetime         not null
+#  created_at             :datetime        not null
+#  updated_at             :datetime        not null
 #  contracting_company    :string(255)
 #  subcontracting_company :string(255)
 #
 
 class Teammate < ActiveRecord::Base
-  attr_accessible :eci_id, :last_name, :name, :contracting_company, :subcontracting_company
+  attr_accessible :eciidentifier, :last_name, :name, 
+                  :contracting_company, :subcontracting_company
+
+  VALIDATE_ECIIDENTIFIER_REGEX=/\A[X,\d]\d\d\d\d\d[[A-Z],\d][[A-Z],\d]\z/i
+  validates :eciidentifier, presence: true, 
+                            length: {is: 8},
+                            format: {with: VALIDATE_ECIIDENTIFIER_REGEX}
+  validates :name, presence: true
+  validates :contracting_company, presence: true
+
 end

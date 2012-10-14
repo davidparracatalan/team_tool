@@ -11,6 +11,8 @@
 #  updated_at        :datetime        not null
 #
 
-class Subteam < ActiveRecord::Base
-  attr_accessible :end_date, :foreseen_end_date, :name, :start_date
+require 'spec_helper'
+
+describe Subteam do
+  pending "add some examples to (or delete) #{__FILE__}"
 end

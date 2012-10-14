@@ -1,0 +1,5 @@
+Notes:
+Calendars: 
+http://railscasts.com/episodes/213-calendars
+github: timcharper/calendar_date_select
+jquery datepicker

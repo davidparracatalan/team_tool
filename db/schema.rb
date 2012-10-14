@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120929223617) do
+ActiveRecord::Schema.define(:version => 20121007193007) do
+
+  create_table "assignments", :force => true do |t|
+    t.integer  "teammate_id"
+    t.integer  "subteam_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "assignments", ["subteam_id"], :name => "index_assignments_on_subteam_id"
+  add_index "assignments", ["teammate_id", "subteam_id"], :name => "index_assignments_on_teammate_id_and_subteam_id", :unique => true
+  add_index "assignments", ["teammate_id"], :name => "index_assignments_on_teammate_id"
 
   create_table "subteams", :force => true do |t|
     t.string   "name"
@@ -23,7 +34,7 @@ ActiveRecord::Schema.define(:version => 20120929223617) do
   end
 
   create_table "teammates", :force => true do |t|
-    t.string   "eci_id"
+    t.string   "eciidentifier"
     t.string   "name"
     t.string   "last_name"
     t.datetime "created_at",             :null => false
