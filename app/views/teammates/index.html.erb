@@ -19,9 +19,9 @@
       <td><%= teammate.last_name %></td>
       <td><%= teammate.contracting_company %></td>
       <td><%= teammate.subcontracting_company  %></td>
-      <td><%= link_to '', teammate, class: "icon-arrow-right" %></td>
-      <td><%= link_to '', edit_teammate_path(teammate), class: "icon-edit" %></td>
-      <td><%= link_to '', teammate, method: :delete, data: { confirm: 'Are you sure?' }, class: "icon-trash" %></td>
+      <td><%= link_to 'View', teammate %></td>
+      <td><%= link_to 'Edit', edit_teammate_path(teammate) %></td>
+      <td><%= link_to 'Delete', teammate, method: :delete, data: { confirm: 'Are you sure?' }%></td>
     </tr>
   <% end %>
 </table>

@@ -11,4 +11,7 @@
 
 class Assignment < ActiveRecord::Base
   attr_accessible :subteam_id, :teammate_id
+
+  belongs_to :teammate
+  belongs_to :subteam
 end

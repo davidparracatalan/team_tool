@@ -31,7 +31,7 @@ describe Teammate do
   it {should respond_to(:contracting_company)}
   it {should respond_to(:subcontracting_company)}
 
-  describe "accesible attributes" do
+  describe "validating required presence" do
     describe "when eciidentifier is not present" do
       before {@teammate.eciidentifier=""}
       it{should_not be_valid}
@@ -62,6 +62,20 @@ describe Teammate do
     end
     describe "when an external eciidentifier is valid" do
       before {@teammate.eciidentifier = "X12345AB"}
+    end
+  end
+
+  describe "validating assignments to subteams" do
+
+    let(:subteam) {FactoryGirl.create(:subteam)}
+
+    before do
+      @teammate.save
+      @teammate.assign_to!(subteam)
+    end
+
+    describe "A teammate is asigned to a subteam" do
+      its(:subteams) {should include(subteam)}
     end
   end
 end

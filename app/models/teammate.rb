@@ -23,4 +23,11 @@ class Teammate < ActiveRecord::Base
   validates :name, presence: true
   validates :contracting_company, presence: true
 
+  has_many :assignments
+  has_many :subteams, :through => :assignments
+
+  def assign_to!(subteam)
+    assignments.create!(subteam_id: subteam.id)
+  end
+
 end
