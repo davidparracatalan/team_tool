@@ -10,24 +10,16 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
+  <div>
+    <%= f.label :name %>
     <%= f.text_field :name %>
+    <%= f.label :start_date %>
+    <%= f.date_select :start_date %>
+    <%= f.label :foreseen_end_date %>
+    <%= f.date_select :foreseen_end_date %>
+    <%= f.label :end_date %>
+    <%= f.date_select :end_date %>
   </div>
-  <div class="field">
-    <%= f.label :start_date %><br />
-    <%= f.datetime_select :start_date %>
-  </div>
-  <div class="field">
-    <%= f.label :foreseen_end_date %><br />
-    <%= f.datetime_select :foreseen_end_date %>
-  </div>
-  <div class="field">
-    <%= f.label :end_date %><br />
-    <%= f.datetime_select :end_date %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.submit "Create", class: "btn btn-large" %>
+  <%= link_to 'Go back home', root_path, class: "btn btn-large"%>
 <% end %>
