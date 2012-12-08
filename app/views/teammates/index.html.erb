@@ -2,28 +2,40 @@
   <h1>Listing teammates</h1>
 </div>
 
-<table class="table table-bordered">
-  <tr>
-    <th>Eci Id</th>
-    <th>Name</th>
-    <th>Last name</th>
-    <th>Contracting company</th>
-    <th>Subcontracting company</th>
-    <th></th>
-  </tr>
-
-  <% @teammates.each do |teammate| %>
+<div>
+  <ul class="nav nav-pills">
+    <li>
+      <a href="#">Teammates</a>
+    </li>
+    <li>
+      <a href="#">Subteams</a>
+    </li>
+  </ul>
+</div>
+<div id="table-content">
+  <table class="table table-bordered">
     <tr>
-      <td><%= teammate.eciidentifier %></td>
-      <td><%= teammate.name %></td>
-      <td><%= teammate.last_name %></td>
-      <td><%= teammate.contracting_company %></td>
-      <td><%= teammate.subcontracting_company  %></td>
-      <td><%= link_to 'View', teammate %></td>
-      <td><%= link_to 'Edit', edit_teammate_path(teammate) %></td>
-      <td><%= link_to 'Delete', teammate, method: :delete, data: { confirm: 'Are you sure?' }%></td>
+      <th>Eci Id</th>
+      <th>Name</th>
+      <th>Last name</th>
+      <th>Contracting company</th>
+      <th>Subcontracting company</th>
+      <th>Actions</th>
     </tr>
-  <% end %>
-</table>
 
-<%= link_to 'New Teammate', new_teammate_path, class: "btn btn-large" %>
+    <% @teammates.each do |teammate| %>
+      <tr>
+        <td><%= teammate.eciidentifier %></td>
+        <td><%= teammate.name %></td>
+        <td><%= teammate.last_name %></td>
+        <td><%= teammate.contracting_company %></td>
+        <td><%= teammate.subcontracting_company  %></td>
+        <td><%= link_to 'View', teammate %></td>
+        <td><%= link_to 'Edit', edit_teammate_path(teammate) %></td>
+        <td><%= link_to 'Delete', teammate, method: :delete, data: { confirm: 'Are you sure?' }%></td>
+      </tr>
+    <% end %>
+  </table>
+
+  <%= link_to 'New Teammate', new_teammate_path, class: "btn btn-large" %>
+</div>
