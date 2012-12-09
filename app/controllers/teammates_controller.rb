@@ -80,4 +80,9 @@ class TeammatesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def availableassignmets
+    @teammate = Teammate.find(params[:id])
+    render :action => 'availableassignments'
+  end
 end
