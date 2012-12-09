@@ -44,6 +44,9 @@ describe Teammate do
       before {@teammate.contracting_company=""}
       it{should_not be_valid}
     end
+  end
+  
+  describe "validating format and sizes" do
     describe "when eccidentifier is bigger then  8 characters length" do
       before {@teammate.eciidentifier="X123456AB"}
       it{should_not be_valid}

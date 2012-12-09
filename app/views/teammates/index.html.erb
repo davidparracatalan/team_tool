@@ -15,12 +15,12 @@
 <div id="table-content">
   <table class="table table-bordered">
     <tr>
-      <th>Eci Id</th>
-      <th>Name</th>
-      <th>Last name</th>
-      <th>Contracting company</th>
-      <th>Subcontracting company</th>
-      <th>Actions</th>
+      <th align="center">Eci Id</th>
+      <th align="center">Name</th>
+      <th align="center">Last name</th>
+      <th align="center">Contracting company</th>
+      <th align="center">Subcontracting company</th>
+      <th align="center">Actions</th>
     </tr>
 
     <% @teammates.each do |teammate| %>
@@ -30,9 +30,14 @@
         <td><%= teammate.last_name %></td>
         <td><%= teammate.contracting_company %></td>
         <td><%= teammate.subcontracting_company  %></td>
-        <td><%= link_to 'View', teammate %></td>
-        <td><%= link_to 'Edit', edit_teammate_path(teammate) %></td>
-        <td><%= link_to 'Delete', teammate, method: :delete, data: { confirm: 'Are you sure?' }%></td>
+        <td>
+          <ul class="nav nav-pills">
+            <li><%= link_to 'View', teammate %></li>
+            <li><%= link_to 'Edit', edit_teammate_path(teammate) %></li>
+            <li><%= link_to 'Delete', teammate, method: :delete, data: { confirm: 'Are you sure?' }%></li>
+            <li><%= link_to 'Assing to a subteam', teammate_assignments_path(teammate) %></li>
+          </ul>
+        </td>
       </tr>
     <% end %>
   </table>

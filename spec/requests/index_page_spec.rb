@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Teammate pages" do
+describe "Teammates app index page" do
   
   subject {page}
 
@@ -10,7 +10,7 @@ describe "Teammate pages" do
 
     it {should have_selector('title', text:"TeamTool")}
    
-    describe "with user" do
+    describe "index page having teammates in the playground" do
       
       let(:mate) {FactoryGirl.create(:teammate)}
       
@@ -27,6 +27,12 @@ describe "Teammate pages" do
       it {should have_link('View'), href: teammate_path(mate)}
       it {should have_link('Edit'), href: edit_teammate_path(mate)}
       it {should have_link('Delete'), href: teammate_path(mate)}
+      it {should have_link('Assing to a subteam'), href: teammate_assignments_path(mate)}
+
+      describe "Clicking on assignment link shows assignmets for mate" do
+        pending "click on the link and validate the page (not the content)"
+        it {}
+      end
     end
 
     describe "visitting the index page with an empty database" do      
@@ -42,6 +48,5 @@ describe "Teammate pages" do
     end
     
   end
-
 
 end
