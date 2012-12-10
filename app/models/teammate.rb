@@ -26,8 +26,4 @@ class Teammate < ActiveRecord::Base
   has_many :assignments
   has_many :subteams, :through => :assignments
 
-  def assign_to!(subteam)
-    assignments.create!(subteam_id: subteam.id)
-  end
-
 end

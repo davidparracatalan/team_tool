@@ -11,6 +11,6 @@ TeamTool::Application.routes.draw do
     get :availableassignmets, on: :member
   end
 
-#  match 'teammates/:id/availableassignments' => 'Teammastes#availableassignments', :as => :availableassignments_for_teammate
+  resources :assignments
 
 end
