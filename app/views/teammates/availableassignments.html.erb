@@ -1,8 +1,11 @@
 <h1>Listing available assignments for <%=@teammate.name%></h1>
+<table class="table">
 <% @subteams.each do |subteam|%>
-  <div>
-      <%= form_for subteam.assignments.build(teammate_id: @teammate.id, subteam_id: subteam.id) do |f|%>
-          <span class="lead"><%=subteam.name%></span><%=f.submit "Assign", class: "btn btn-large"%>
-      <% end %>
-  <div>
+  <tr>
+    <%= form_for subteam.assignments.build(teammate_id: @teammate.id, subteam_id: subteam.id) do |f|%>
+      <td class="lead"><%=subteam.name%></td>
+      <td><%=f.submit "Assign", class: "btn btn-large assignment_button"%><td>
+    <% end %>
+  </tr>
 <% end %>
+</table>
