@@ -38,7 +38,7 @@ describe "Teammates app index page" do
         it {should have_selector('h1', text:"Listing available assignments for #{mate.name}")}
         it {should have_selector('span', text:"#{subteam_1.name}")}
         it {should have_selector('span', text:"#{subteam_2.name}")}
-
+        it {should have_css("#assignment_button")}
       end
     end
 
