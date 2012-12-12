@@ -45,7 +45,12 @@ class TeammatesController < ApplicationController
 
   def availableassignmets
     @teammate = Teammate.find(params[:id])
-    @subteams = Subteam.find(:all)
+    @allsubteams = Subteam.find(:all)
     render :action => 'availableassignments'
+  end
+
+  def assign_to_subteam
+    @teammate = Teammate.find(params[:id])
+    @teammate.assign_to!(params[:subteam])
   end
 end

@@ -1,6 +1,6 @@
 <h1>Listing available assignments for <%=@teammate.name%></h1>
 <div>
-<% @subteams.each do |subteam|%>    
+<% @allsubteams.each do |subteam|%>    
     <%= form_for subteam.assignments.build(teammate_id: @teammate.id, subteam_id: subteam.id) do |f|%>      
         <span class="lead subteam_item"><%=subteam.name%></span><%=f.submit "Assign", class: "btn btn-large assignment_button"%>
     <% end %>
