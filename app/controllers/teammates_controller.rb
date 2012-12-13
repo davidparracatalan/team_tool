@@ -43,10 +43,10 @@ class TeammatesController < ApplicationController
     redirect_to teammates_url
   end
 
-  def availableassignmets
+  def team_assignments
     @teammate = Teammate.find(params[:id])
     @allsubteams = Subteam.find(:all)
-    render :action => 'availableassignments'
+    render :action => 'team_assignments'
   end
 
   def assign_to_subteam

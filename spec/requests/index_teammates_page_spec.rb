@@ -27,7 +27,7 @@ describe "Teammates app index page" do
       it {should have_link('View'), href: teammate_path(mate)}
       it {should have_link('Edit'), href: edit_teammate_path(mate)}
       it {should have_link('Delete'), href: teammate_path(mate)}
-      it {should have_link('Assingments'), href: availableassignmets_teammate_path(mate)}
+      it {should have_link('Assingments'), href:  team_assignments_teammate_path(mate)}
 
       describe "Clicking on assign to a team link shows available assignments page" do
         let(:subteam_1) {FactoryGirl.create(:subteam)}
