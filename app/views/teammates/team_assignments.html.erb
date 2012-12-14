@@ -1,8 +1,25 @@
-<h1>Listing available assignments for <%=@teammate.name%></h1>
-<div>
-<% @allsubteams.each do |subteam|%>    
+<%if @subteams_for_teammate.empty?%>
+  <div class="page-header"> 
+    <h1><%=@teammate.name%> is not assigned to any subteam yet</h1>
+  </div>
+<% else %>
+  <div class="page-header"> 
+    <h1><%=@teammate.name%>'s assignments</h1>
+    <h2><%=@teammate.name%> is assigned to the following subteams:</h1>
+  </div>
+  <ul id="assigned_teams_list">
+  <%@subteams_for_teammate.each do |subteam|%>
+      <li class="lead"><%=subteam.name%></li>
+  <% end %>
+  </ul>
+<% end %>
+<div class="page-header">
+  <h2>Available subteams</h2>
+</div>
+<div id="available_teams">
+<% @available_subteams.each do |subteam|%>    
     <%= form_for subteam.assignments.build(teammate_id: @teammate.id, subteam_id: subteam.id) do |f|%>      
-        <span class="lead subteam_item"><%=subteam.name%></span><%=f.submit "Assign", class: "btn btn-large", id:"assignment_button"%>
+        <span class="lead available_subteam_list_item"><%=subteam.name%></span><%=f.submit "Assign", class: "btn btn-large", id:"assignment_button"%>
     <% end %>
 <% end %>
 </div>
