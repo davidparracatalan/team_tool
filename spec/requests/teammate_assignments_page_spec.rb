@@ -4,9 +4,9 @@ describe "Teammate's assignments page" do
   
   subject {page}
 
-  let(:mate) {FactoryGirl.create(:teammate)}
-  let(:subteam_1) {FactoryGirl.create(:subteam)}
-  let(:subteam_2) {FactoryGirl.create(:subteam)}
+  let!(:mate) {FactoryGirl.create(:teammate)}
+  let!(:subteam_1) {FactoryGirl.create(:subteam)}
+  let!(:subteam_2) {FactoryGirl.create(:subteam)}
 
   describe "Teammate assignment page without any team assigned" do
     before do
@@ -26,9 +26,16 @@ describe "Teammate's assignments page" do
     end
 
     it {should have_selector('h1', text:"#{mate.name}'s assignments")}
-    it {should have_selector('h2', text:"#{mate.name} is assigned to the following subteams:")}
+    it {should have_selector('h2', text:"#{mate.name} is assigned to the following subteams")}
     it {find("#assigned_teams_list").should have_selector('li', text:"#{subteam_1.name}")}
     it {find("#assigned_teams_list").should_not have_selector('li', text:"#{subteam_2.name}")}
+    it {find("#available_teams").should have_selector('span', text:"#{subteam_2.name}")}
     it {find("#available_teams").should_not have_selector('span', text:"#{subteam_1.name}")}
+  end
+
+  describe "Assignning teammate to a  team" do
+    it "should validate browsing flow on teammate's assignments and unassignments" do
+      pending ("Assignments model tests shall be built first")
+    end
   end
 end  
