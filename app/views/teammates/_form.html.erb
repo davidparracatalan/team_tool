@@ -22,6 +22,8 @@
       <%= f.label :subcontracting_company%>
       <%= f.text_field :subcontracting_company  %>
     </div>
-    <%= f.submit "Create", class: "btn btn-large" %>
-    <%= link_to 'Go back home', root_path, class: "btn btn-large"%>
+    <div>
+      <span><%= f.submit "Create", class: "btn btn-large" %></span>
+      <span><%= link_to 'Go back home', root_path, class: "btn btn-large"%></span>
+    </div>
 <% end %>

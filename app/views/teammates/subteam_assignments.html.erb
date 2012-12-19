@@ -25,8 +25,9 @@
   </div>
   <div id="available_teams">
     <% @available_subteams.each do |subteam|%>    
-        <%= form_for subteam.assignments.build(teammate_id: @teammate.id) do |f|%>      
-            <span class="lead available_subteam_list_item"><%=subteam.name%></span><%=f.submit "Assign", class: "btn btn-large", id:"assignment_button"%>
+        <%= form_tag("assignments/new", :method => "get") do%> 
+            <%= hidden_field_tag(:subteam_id, "#{subteam.id}") %>     
+            <span class="lead available_subteam_list_item"><%=subteam.name%></span><%= submit_tag("Assign", class: "btn btn-large", id:"assignment_button")%>
         <% end %>
     <% end %>
   </div>
