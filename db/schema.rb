@@ -11,13 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121007193007) do
+ActiveRecord::Schema.define(:version => 20121219214531) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "teammate_id"
     t.integer  "subteam_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.date     "start_date"
+    t.date     "foreseen_end_date"
+    t.date     "end_date"
   end
 
   add_index "assignments", ["subteam_id"], :name => "index_assignments_on_subteam_id"

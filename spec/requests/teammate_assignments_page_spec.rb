@@ -8,7 +8,7 @@ describe "Teammate's assignments page" do
 
   describe "without available assignments" do
     before do
-        visit team_assignments_teammate_path(mate)
+        visit subteam_assignments_teammate_path(mate)
     end
     it {should have_selector('h1', text:"No subteams available for #{mate.name}")}
   end
@@ -20,7 +20,7 @@ describe "Teammate's assignments page" do
 
     describe "but without any team assigned" do
       before do
-        visit team_assignments_teammate_path(mate)
+        visit subteam_assignments_teammate_path(mate)
       end
         it {should have_selector('h1', text:"#{mate.name} is not assigned to any subteam yet")}
         it {should have_selector('span', text:"#{subteam_1.name}")}
@@ -32,7 +32,7 @@ describe "Teammate's assignments page" do
 
       before do
         mate.assign_to! subteam_1
-        visit team_assignments_teammate_path(mate)
+        visit subteam_assignments_teammate_path(mate)
       end
 
       it {should have_selector('h1', text:"#{mate.name}'s assignments")}
@@ -42,11 +42,17 @@ describe "Teammate's assignments page" do
       it {find("#available_teams").should have_selector('span', text:"#{subteam_2.name}")}
       it {find("#available_teams").should_not have_selector('span', text:"#{subteam_1.name}")}
     end
+
+    describe "Assignning teammate to a  team" do
+      describe "selecting assign button takes you to new_teammate_assignment_path" do
+        before do
+          visit subteam_assignments_teammate_path(mate)
+          click_button "Assign"
+        end
+        it {current_path.should == new_teammate_assignment_path(mate)}
+      end
+    end
+
   end
 
-  describe "Assignning teammate to a  team" do
-    it "should validate browsing flow on teammate's assignments and unassignments" do
-      pending ("Assignments model tests shall be built first")
-    end
-  end
 end  
