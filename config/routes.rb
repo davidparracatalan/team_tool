@@ -4,7 +4,7 @@ TeamTool::Application.routes.draw do
 
   resources :subteams do
     resources :assignments
-    get :mate_assignments, on: :member
+    get :teammate_assignments, on: :member
   end  
   
   resources :teammates do

@@ -10,11 +10,12 @@
   <div id="assigned_teams_list">
     <%@subteams_for_teammate.each do |subteam|%>
         <%= form_for subteam.assignments, :html => {:method => :delete} do |f|%>      
-            <span class="lead available_subteam_list_item"><%=subteam.name%></span><%=f.submit "Unassign", class: "btn btn-large", id:"assignment_button"%>
+            <span class="lead available_subteam_list_item"><%=subteam.name%></span><%=f.submit "Unassign", class: "btn btn-large", id:"assignment_button", data: { confirm: 'Are you sure?' }%>
         <% end %>
     <% end %>
   </div>
 <% end %>
+<br>
 <%if @available_subteams.empty?%>
   <div class="page-header"> 
     <h1>No subteams available for <%=@teammate.name%></h1>
