@@ -44,4 +44,8 @@ describe Assignment do
     it {should_not be_valid}
   end
 
+  describe "start date must be sooner than foreseen end date" do
+    before {@assignment.start_date = Time.now+(8*24*60*60)}
+    it {should_not be_valid}
+  end
 end
