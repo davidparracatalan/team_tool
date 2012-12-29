@@ -19,6 +19,7 @@ class Subteam < ActiveRecord::Base
   validates :start_date, presence: true
   validates :foreseen_end_date, presence: true
 
+  has_many :assignments
   has_many :teammates, :through => :assignments
 
 end

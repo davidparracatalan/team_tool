@@ -1,0 +1,17 @@
+<div class="container">
+  <h2>You're assigning <em><%=@teammate.name%></em> to <em><%=@subteam.name%></em></h2>
+  <h3>Please, set the dates</h3>
+  <%=form_for @assignment, :url => {:action => "create"} do |f|%>
+    <%= hidden_field_tag "teammate_id", "#{@teammate.id}"%>
+    <%= hidden_field_tag "subteam_id", "#{@subteam.id}"%>
+    <p class="lead">You expect <%=@teammate.name%> starting on</p>
+    <%= f.label :start_date %>
+    <%= f.date_select :start_date%>
+    <p class="lead">And expect <%=@teammate.name%> leaving this subteam by</p>
+    <%= f.label :foreseen_end_date %>
+    <%= f.date_select :foreseen_end_date %>
+    <div>
+      <%= f.submit "Confirm assignment", class: "btn btn-large" %>
+    </div>
+  <%end%>
+</div>

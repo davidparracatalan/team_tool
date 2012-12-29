@@ -32,7 +32,7 @@
         <td><%= teammate.subcontracting_company  %></td>
         <td>
           <ul class="nav nav-pills">
-            <li><%= link_to 'Assing to a subteam', availableassignmets_teammate_path(teammate) %></li>
+            <li><%= link_to 'Assingments',  subteam_assignments_teammate_path(teammate) %></li>
             <li><%= link_to 'View', teammate %></li>
             <li><%= link_to 'Edit', edit_teammate_path(teammate) %></li>
             <li><%= link_to 'Delete', teammate, method: :delete, data: { confirm: 'Are you sure?' }%></li>

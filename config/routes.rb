@@ -4,13 +4,14 @@ TeamTool::Application.routes.draw do
 
   resources :subteams do
     resources :assignments
+    get :teammate_assignments, on: :member
   end  
   
   resources :teammates do
     resources :assignments
-    get :availableassignmets, on: :member
+    get :subteam_assignments, on: :member
   end
 
-#  match 'teammates/:id/availableassignments' => 'Teammastes#availableassignments', :as => :availableassignments_for_teammate
+  resources :assignments
 
 end
