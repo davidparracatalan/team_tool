@@ -14,4 +14,5 @@ class Assignment < ActiveRecord::Base
 
   belongs_to :teammate
   belongs_to :subteam
+  
 end
