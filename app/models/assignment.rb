@@ -20,4 +20,15 @@ class Assignment < ActiveRecord::Base
 
   belongs_to :teammate
   belongs_to :subteam
+
+
+  private
+
+  def validate_start_date_before_foreseen_end_date
+
+    if start_date && foreseen_end_date
+      errors.add(:end_date, "Foreseen end date must be greates than start date") if foreseen_end_date < start_date
+    end    
+  end
+
 end
