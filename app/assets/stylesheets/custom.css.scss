@@ -13,24 +13,21 @@ h1 {
   margin-left: 30px;
 }
 
-.table th{
-  text-align: center;
-}
-
-.table td{
-  text-align: center;
-  vertical-align: middle;
-  height: auto;
+.table {
+  th{
+    text-align: center;
+  }
+  td{
+    text-align: center;
+    vertical-align: middle;
+    height: auto;
+  }
 }
 
 .nav{
   margin-bottom: 0px;
 }
 
-.available_subteam_list_item{
-  float: left;
-  clear: both;
-  width: 500px;
-  text-align: left;
-  margin-right: 50px;
+.subteam_title{
+  width: 30%;
 }

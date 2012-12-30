@@ -3,16 +3,27 @@
     <h1><%=@teammate.name%> is not assigned to any subteam yet</h1>
   </div>
 <% else %>
-  <div class="page-header"> 
+  <div> 
     <h1><%=@teammate.name%>'s assignments</h1>
-    <h2><%=@teammate.name%> is assigned to the following subteams</h1>
+    <h3><%=@teammate.name%> is assigned to the following subteams</h3>
   </div>
-  <div id="assigned_teams_list">
-    <%@subteams_for_teammate.each do |subteam|%>
-        <%= form_for subteam.assignments, :html => {:method => :delete} do |f|%>      
-            <span class="lead available_subteam_list_item"><%=subteam.name%></span><%=f.submit "Unassign", class: "btn btn-large", id:"assignment_button", data: { confirm: 'Are you sure?' }%>
+  <div>
+    <table class="table table-striped">
+      <th>Subteam</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Unassign</th>
+      <%@subteams_for_teammate.each do |subteam|%>
+      <tr>
+         <%= form_for subteam.assignments, :html => {:method => :delete} do |f|%>      
+            <td class="subteam_title"><%=subteam.name%></td>
+            <td>Space for start date</td>
+            <td>Space for end date</td>
+            <td><%=f.submit "Unassign", class: "btn", id:"assignment_button", data: { confirm: 'Are you sure?' }%></td>
         <% end %>
-    <% end %>
+      <tr>
+      <% end %>
+    </table>
   </div>
 <% end %>
 <br />
@@ -21,15 +32,26 @@
     <h1>No subteams available for <%=@teammate.name%></h1>
   </div>
 <%else%>
-  <div class="page-header">
-    <h2>Available subteams</h2>
+  <div>
+    <h3>Available subteams</h3>
   </div>
-  <div id="available_teams">
-    <% @available_subteams.each do |subteam|%>    
+  <div>
+    <table class="table table-striped">
+      <th>Available subteam</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Assign</th>
+      <% @available_subteams.each do |subteam|%>
+        <tr>
         <%= form_tag("assignments/new", :method => "get") do%> 
-            <%= hidden_field_tag(:subteam_id, "#{subteam.id}") %>     
-            <span class="lead available_subteam_list_item"><%=subteam.name%></span><%= submit_tag("Assign", class: "btn btn-large", id:"assignment_button")%>
-        <% end %>
-    <% end %>
+              <%= hidden_field_tag(:subteam_id, "#{subteam.id}") %>     
+              <td class="subteam_title"><%=subteam.name%></td>
+              <td>Space for start date</td>
+              <td>Space for end date</td>
+              <td><%= submit_tag("Assign", class: "btn")%></td>
+          <% end %>  
+        </tr>
+      <%end%>
+    </table>
   </div>
 <%end%>
