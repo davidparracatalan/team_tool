@@ -1,0 +1,56 @@
+<%if @assignments_for_teammate.empty?%>
+  <div class="page-header"> 
+    <h1><%=@teammate.name%> is not assigned to any subteam yet</h1>
+  </div>
+<% else %>
+  <div> 
+    <h1><%=@teammate.name%>'s assignments</h1>
+    <h3><%=@teammate.name%> is assigned to the following subteams</h3>
+  </div>
+  <div>
+    <table class="table table-striped">
+      <th>Subteam</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Unassign</th>
+      <%@assignments_for_teammate.each do |assignment|%>
+      <tr>
+         <%= form_for assignment, :html => {:method => :delete} do |f|%>      
+            <td class="subteam_title"><%=assignment.subteam.name%></td>
+            <td><%=assignment.start_date%></td>
+            <td><%=assignment.foreseen_end_date%></td>
+            <td><%=f.submit "Unassign", class: "btn", id:"assignment_button", data: { confirm: 'Are you sure?' }%></td>
+        <% end %>
+      <tr>
+      <% end %>
+    </table>
+  </div>
+<% end %>
+<br />
+<%if @available_subteams.empty?%>
+  <div class="page-header"> 
+    <h1>No subteams available for <%=@teammate.name%></h1>
+  </div>
+<%else%>
+  <div>
+    <h3>Available subteams</h3>
+  </div>
+  <div>
+    <table class="table table-striped">
+      <th>Available subteam</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Assign</th>
+      <% @available_subteams.each do |subteam|%>
+        <tr>
+        <%= form_for @assignment do |f|%> 
+              <td class="subteam_title"><%=subteam.name%></td>
+              <td><%= f.text_field :start_date, class: "datepicker"%></td>
+              <td>Space for end date</td>
+              <td><%= f.submit "Assign", class: "btn"%></td>
+          <% end %>  
+        </tr>
+      <%end%>
+    </table>
+  </div>
+<%end%>

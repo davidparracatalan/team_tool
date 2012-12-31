@@ -1,6 +1,7 @@
 class AssignmentsController < ApplicationController
 
   def index
+    @assignment = Assignment.new
     if params[:teammate_id]
       @teammate = Teammate.find(params[:teammate_id])
       @assignments_for_teammate = @teammate.assignments

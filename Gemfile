@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
 gem 'will_paginate', '~> 3.0.0'
+gem 'jquery-rails', '2.0.2'
+gem 'bootstrap-datepicker-rails'
 
 
 group :development, :test do
@@ -19,7 +21,7 @@ group :assets do
   gem 'uglifier', '1.2.3'
 end
 
-gem 'jquery-rails', '2.0.2'
+
 
 group :test do
   gem 'capybara', '1.1.2'
