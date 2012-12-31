@@ -27,8 +27,16 @@ class Teammate < ActiveRecord::Base
   has_many :subteams, :through => :assignments
 
 
-  def assign_to! subteam
-    assignments.create!(subteam_id: subteam.id)
+  def assign_to! subteam, start_date, foreseen_end_date
+    assignments.create!(subteam_id: subteam.id, 
+                        start_date: start_date, 
+                        foreseen_end_date: foreseen_end_date)
+  end
+
+  def subteams_not_assigned_to_me
+    Subteam.where(id: Assignment.select("subteam_id").where("teammate_id != ?", id)) + 
+    Subteam.where("subteams.id NOT IN (select subteam_id from assignments)")
+    #Subteam.find(:all) - subteams
   end
 
 end

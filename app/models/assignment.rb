@@ -16,6 +16,9 @@ class Assignment < ActiveRecord::Base
   attr_accessible :subteam_id, :teammate_id, :start_date, :foreseen_end_date
   validates :subteam_id, presence: true
   validates :teammate_id, presence: true
+  validates :start_date, presence: true
+  validates :foreseen_end_date, presence: true
+
   validate :validate_start_date_before_foreseen_end_date
 
   belongs_to :teammate
