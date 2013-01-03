@@ -17,6 +17,6 @@
 //= require_tree .
 
 $(document).ready(function(){
-  $('.datepicker').datepicker()
+  $('.datepicker').datepicker({"autoclose": true, "format": 'dd/mm/yyy', "weekStart": 1})
 });
 

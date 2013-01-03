@@ -5,7 +5,7 @@
 <% else %>
   <div> 
     <h1><%=@teammate.name%>'s assignments</h1>
-    <h3><%=@teammate.name%> is assigned to the following subteams</h3>
+    <h3><%=@teammate.name%> is currently assigned to the following subteams</h3>
   </div>
   <div>
     <table class="table table-striped">
@@ -33,7 +33,7 @@
   </div>
 <%else%>
   <div>
-    <h3>Available subteams</h3>
+    <h3>Available subteams for <%=@teammate.name%> to be assigned to</h3>
   </div>
   <div>
     <table class="table table-striped">
@@ -43,12 +43,14 @@
       <th>Assign</th>
       <% @available_subteams.each do |subteam|%>
         <tr>
-        <%= form_for @assignment do |f|%> 
+          <%= form_for subteam.assignments.build(teammate_id: @teammate.id) do |f|%>
               <td class="subteam_title"><%=subteam.name%></td>
+              <%= f.hidden_field :teammate_id%>
+              <%= f.hidden_field :subteam_id%>
               <td><%= f.text_field :start_date, class: "datepicker"%></td>
-              <td>Space for end date</td>
-              <td><%= f.submit "Assign", class: "btn"%></td>
-          <% end %>  
+              <td><%= f.text_field :foreseen_end_date, class: "datepicker"%></td>
+              <td><%= f.submit "Assign", class: "btn"%></td>        
+          <% end %>
         </tr>
       <%end%>
     </table>
