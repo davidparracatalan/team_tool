@@ -19,7 +19,7 @@
             <td class="subteam_title"><%=assignment.subteam.name%></td>
             <td><%=assignment.start_date.strftime('%d %b %Y')%></td>
             <td><%=assignment.foreseen_end_date.strftime('%d %b %Y')%></td>
-            <td><%=f.submit "Unassign", class: "btn", :onclick => "return confirm('Are you really sure')"%></td>
+            <td><%=f.submit "Unassign", class: "btn", :onclick => "return confirm('Are you sure?')"%></td>
         <% end %>
       <tr>
       <% end %>
@@ -27,6 +27,6 @@
   </div>
 <% end %>
 <div>
-  <%= link_to "Assign #{@teammate.name} to a subteam...", new_teammate_assignment_path(@teammate) %>
+  <%= link_to "Assign #{@teammate.name} to a new subteam...", new_teammate_assignment_path(@teammate) %>
 </div>
 <br />
