@@ -1,17 +1,27 @@
-<div class="container">
-  <h2>You're assigning <em><%=@teammate.name%></em> to <em><%=@subteam.name%></em></h2>
-  <h3>Please, set the dates</h3>
-  <%=form_for @assignment, :url => {:action => "create"} do |f|%>
-    <%= hidden_field_tag "teammate_id", "#{@teammate.id}"%>
-    <%= hidden_field_tag "subteam_id", "#{@subteam.id}"%>
-    <p class="lead">You expect <%=@teammate.name%> starting on</p>
-    <%= f.label :start_date %>
-    <%= f.date_select :start_date%>
-    <p class="lead">And expect <%=@teammate.name%> leaving this subteam by</p>
-    <%= f.label :foreseen_end_date %>
-    <%= f.date_select :foreseen_end_date %>
-    <div>
-      <%= f.submit "Confirm assignment", class: "btn btn-large" %>
+<%if @assignment && @assignment.errors.any? %>
+  <div id="error_explanation">
+      <h2><%= pluralize(@assignment.errors.count, "error") %> prohibited this assignment from being saved:</h2>
+      <ul>
+        <% @assignment.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+  </div>
+<%end%>
+<div>
+  <%if @available_subteams.empty?%>
+    <div class="page-header"> 
+      <h3>Sorry, you can't assign <%=@teammate.name%> to any subteam because there's no one available now</h1>
     </div>
+  <%else%>
+    <%= form_for [:teammate, @assignment] do |f|%>
+      <div>
+        <%= f.hidden_field :teammate_id, :value => @teammate.id %>
+        <%= f.collection_select(:subteam_id, @available_subteams, :id, :name) %>
+        <%= f.text_field :start_date, class: "datepicker"%>
+        <%= f.text_field :foreseen_end_date, class: "datepicker"%>
+        <%= f.submit "Assign", class: "btn"%>
+      </div>
+    <%end%>
   <%end%>
 </div>

@@ -17,8 +17,8 @@
       <tr>
          <%= form_for assignment, :html => {:method => :delete} do |f|%>      
             <td class="subteam_title"><%=assignment.subteam.name%></td>
-            <td><%=assignment.start_date%></td>
-            <td><%=assignment.foreseen_end_date%></td>
+            <td><%=assignment.start_date.strftime('%d %b %Y')%></td>
+            <td><%=assignment.foreseen_end_date.strftime('%d %b %Y')%></td>
             <td><%=f.submit "Unassign", class: "btn", id:"assignment_button", data: { confirm: 'Are you sure?' }%></td>
         <% end %>
       <tr>
@@ -26,33 +26,7 @@
     </table>
   </div>
 <% end %>
+<div>
+  <%= link_to "Assign #{@teammate.name} to a subteam...", new_teammate_assignment_path(@teammate) %>
+</div>
 <br />
-<%if @available_subteams.empty?%>
-  <div class="page-header"> 
-    <h1>No subteams available for <%=@teammate.name%></h1>
-  </div>
-<%else%>
-  <div>
-    <h3>Available subteams for <%=@teammate.name%> to be assigned to</h3>
-  </div>
-  <div>
-    <table class="table table-striped">
-      <th>Available subteam</th>
-      <th>Start Date</th>
-      <th>End Date</th>
-      <th>Assign</th>
-      <% @available_subteams.each do |subteam|%>
-        <tr>
-          <%= form_for subteam.assignments.build(teammate_id: @teammate.id) do |f|%>
-              <td class="subteam_title"><%=subteam.name%></td>
-              <%= f.hidden_field :teammate_id%>
-              <%= f.hidden_field :subteam_id%>
-              <td><%= f.text_field :start_date, class: "datepicker"%></td>
-              <td><%= f.text_field :foreseen_end_date, class: "datepicker"%></td>
-              <td><%= f.submit "Assign", class: "btn"%></td>        
-          <% end %>
-        </tr>
-      <%end%>
-    </table>
-  </div>
-<%end%>

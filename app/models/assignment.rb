@@ -30,7 +30,7 @@ class Assignment < ActiveRecord::Base
   def validate_start_date_before_foreseen_end_date
 
     if start_date && foreseen_end_date
-      errors.add(:end_date, "Foreseen end date must be greates than start date") if foreseen_end_date < start_date
+      errors.add(:end_date, "Foreseen end date must be greater than start date") if foreseen_end_date < start_date
     end    
   end
 
