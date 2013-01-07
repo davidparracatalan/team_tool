@@ -19,7 +19,7 @@
             <td class="subteam_title"><%=assignment.subteam.name%></td>
             <td><%=assignment.start_date.strftime('%d %b %Y')%></td>
             <td><%=assignment.foreseen_end_date.strftime('%d %b %Y')%></td>
-            <td><%=f.submit "Unassign", class: "btn", id:"assignment_button", data: { confirm: 'Are you sure?' }%></td>
+            <td><%=f.submit "Unassign", class: "btn", :onclick => "return confirm('Are you really sure')"%></td>
         <% end %>
       <tr>
       <% end %>
