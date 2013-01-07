@@ -27,7 +27,7 @@ describe "Teammates app index page" do
       it {should have_link('View'), href: teammate_path(mate)}
       it {should have_link('Edit'), href: edit_teammate_path(mate)}
       it {should have_link('Delete'), href: teammate_path(mate)}
-      it {should have_link('Assingments'), href:  subteam_assignments_teammate_path(mate)}
+      it {should have_link('Assingments'), href:  teammate_assignments_path(mate)}
     end
 
     describe "visitting the index page with an empty database" do      

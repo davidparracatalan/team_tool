@@ -15,7 +15,7 @@ class AssignmentsController < ApplicationController
     if @assignment.save      
       redirect_to teammate_assignments_path(@teammate)
     else
-      render action: "new"
+      render :new
     end
   end
 

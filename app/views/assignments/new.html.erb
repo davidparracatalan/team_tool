@@ -1,5 +1,6 @@
 <%if @assignment && @assignment.errors.any? %>
-  <div id="error_explanation">
+  <div class="alert">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
       <h2><%= pluralize(@assignment.errors.count, "error") %> prohibited this assignment from being saved:</h2>
       <ul>
         <% @assignment.errors.full_messages.each do |msg| %>

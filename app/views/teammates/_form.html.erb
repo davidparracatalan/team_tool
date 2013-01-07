@@ -1,6 +1,7 @@
 <%= form_for @teammate do |f| %>
   <% if @teammate.errors.any? %>
-    <div id="error_explanation">
+    <div id="alert">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
       <h2><%= pluralize(@teammate.errors.count, "error") %> prohibited this teammate from being saved:</h2>
 
       <ul>

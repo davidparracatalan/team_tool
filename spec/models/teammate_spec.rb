@@ -74,7 +74,7 @@ describe Teammate do
 
     before do
       @teammate.save
-      @teammate.assign_to!(subteam)
+      @teammate.assign_to!(subteam, 1.day.from_now, 2.days.from_now)
     end
 
     describe "A teammate is asigned to a subteam" do
