@@ -1,0 +1,12 @@
+ <% if @teammate.errors.any? %>
+    <div id="alert">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <h2><%= pluralize(@teammate.errors.count, "error") %> prohibited this teammate from being saved:</h2>
+
+      <ul>
+      <% @teammate.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>

@@ -1,3 +1,7 @@
 <h1>Editing teammate</h1>
-
-<%= render 'form' %>
+<%= form_for @teammate do |f| %>
+<%= render 'fields', f: f %>
+<div>
+  <%= f.submit "Update", class: "btn btn-large" %>
+</div>
+<% end %>
