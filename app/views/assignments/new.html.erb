@@ -16,7 +16,7 @@
     </div>
   <%else%>
     <div class="page-header"> 
-      <h3>Please, select the subteam and set the dates</h3>
+      <h3>Please, select the subteam and set the dates for the new <%=@teammate.name%>'s assignment</h3>
     </div>
     <%= form_for [:teammate, @assignment] do |f|%>
       <div>

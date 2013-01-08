@@ -1,29 +1,32 @@
-<p id="notice"><%= notice %></p>
+<div>
+  <h1><%=@teammate.name+' '+@teammate.last_name%></h1>
+</div>
+<hr>
+<div class="row">
+  <div class="span6">
+    <table>
+      <tr>
+        <td>Contracting company</td>
+        <td><%= @teammate.contracting_company %></td>
+      </tr>
+      <tr>
+        <td>Subcontracting company</td>
+        <td><%= @teammate.subcontracting_company%></td>
+      </tr>
+    </table>
+    <div>
+      <%= link_to 'Edit', edit_teammate_path(@teammate), class: "btn btn-large bottom_buttom" %>
+    </div>
+  </div>
+  <div class="span6">
+    <p>Assignments list</p>
+    <p>Pasta ipsum dolor sit amet campanelle cavatelli pennette casarecce bavette gomito gigli spiralini rotelle. Lumaconi farfalloni rigatoni chifferi cavatelli gnocchi manicotti mafaldine fiori fiorentine croxetti ditalini lumaconi lumache lagane torchio. Paccheri radiatori trennette sorprese lisce fettucelle gigli sacchettoni casarecce bavettine trenette mezze penne. Fiorentine spaghetti ditalini penne vermicelloni spiralini tagliatelle vermicelli penne sorprese lisce casarecce ditalini trenne gigli. Lumache perciatelli trenette taglierini rigatoni maltagliati trennette sagne 'ncannulate capunti. Tagliatelle lasagnette pasta al ceppo mezzani pasta cavatelli lagane sorprese fiorentine bavette trofie maccheroncelli pennoni sacchettini mafalde lasagnette quadrefiore. Capelli d'angelo maltagliati trofie capellini pennette sorprese lisce casarecce tortiglioni fedelini occhi di lupo mafaldine pasta al ceppo gnocchi quadrefiore.</p>
+    <div>
+      <%= link_to 'Change assignments', '#', class: "btn btn-large bottom_buttom" %>
+    </div>
+  </div>
+</div>
+<hr>
 
-<p>
-  <b>Eci Id:</b>
-  <%= @teammate.eciidentifier %>
-</p>
-
-<p>
-  <b>Name:</b>
-  <%= @teammate.name %>
-</p>
-
-<p>
-  <b>Last name:</b>
-  <%= @teammate.last_name %>
-</p>
-
-<p>
-  <b>Contracting company</b>
-  <%= @teammate.contracting_company %>
-</p>
-
-<p>
-  <b>Subcontracting company</b>
-  <%= @teammate.subcontracting_company%>
-</p>
 
 
-<%= link_to 'Edit', edit_teammate_path(@teammate), class: "btn" %>
