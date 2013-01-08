@@ -1,4 +1,6 @@
-<h1>Editing teammate</h1>
+<div class="page-header">
+  <h1>Editing <%=@teammate.name%>'s data</h1>
+</div>
 <%= form_for @teammate do |f| %>
 <%= render 'fields', f: f %>
 <div>

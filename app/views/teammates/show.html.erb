@@ -1,7 +1,6 @@
-<div>
+<div class="page-header">
   <h1><%=@teammate.name+' '+@teammate.last_name%></h1>
 </div>
-<hr>
 <div class="container">
   <div class="row">
     <div class="span4">
@@ -22,10 +21,10 @@
     </div>
   </div>
   <div class="row">
-    <div class="span6">
+    <div class="span4">
       <%= link_to 'Edit', edit_teammate_path(@teammate), class: "btn btn-large" %>
     </div>
-    <div class="span6">
+    <div class="span8">
       <%= link_to 'Change assignments', '#', class: "btn btn-large" %>
     </div>
   </div>

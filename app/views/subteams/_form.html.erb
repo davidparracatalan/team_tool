@@ -1,6 +1,6 @@
 <%= form_for(@subteam) do |f| %>
   <% if @subteam.errors.any? %>
-    <div id="alert">
+    <div id="alert alert-error">
       <button type="button" class="close" data-dismiss="alert">&times;</button>
       <h2><%= pluralize(@subteam.errors.count, "error") %> prohibited this subteam from being saved:</h2>
 

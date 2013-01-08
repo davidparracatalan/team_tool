@@ -1,11 +1,13 @@
+<div class="page-header">
+  <h1><%=@teammate.name%>'s assignments</h1>
+</div>
 <%if @assignments_for_teammate.empty?%>
-  <div class="page-header"> 
-    <h1><%=@teammate.name%> is not assigned to any subteam yet</h1>
+  <div> 
+    <h3><%=@teammate.name%> is not assigned to any subteam yet</h1>
     <h3>Click the link below to assign <%=@teammate.name%> to a subteam</h3>
   </div>
 <% else %>
-  <div> 
-    <h1><%=@teammate.name%>'s assignments</h1>
+  <div>
     <h3><%=@teammate.name%> is currently assigned to the following subteams</h3>
   </div>
   <div>
