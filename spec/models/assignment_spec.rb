@@ -20,7 +20,7 @@ describe Assignment do
     @assignment = Assignment.new(teammate_id: 1, 
                                  subteam_id: 1,
                                  start_date: Time.now,
-                                 foreseen_end_date: Time.now+(3*24*60*60))
+                                 foreseen_end_date: 10.days.from_now)
 
   end
 
@@ -45,7 +45,7 @@ describe Assignment do
   end
 
   describe "start date must be sooner than foreseen end date" do
-    before {@assignment.start_date = Time.now+(8*24*60*60)}
+    before {@assignment.start_date = 11.days.from_now}
     it {should_not be_valid}
   end
 end

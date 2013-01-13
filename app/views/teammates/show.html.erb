@@ -17,7 +17,7 @@
     </div>
     <div class="span8">
       <p>Assignments list</p>
-      <p>Pasta ipsum dolor sit amet campanelle cavatelli pennette casarecce bavette gomito gigli spiralini rotelle. Lumaconi farfalloni rigatoni chifferi cavatelli gnocchi manicotti mafaldine fiori fiorentine croxetti ditalini lumaconi lumache lagane torchio. Paccheri radiatori trennette sorprese lisce fettucelle gigli sacchettoni casarecce bavettine trenette mezze penne. Fiorentine spaghetti ditalini penne vermicelloni spiralini tagliatelle vermicelli penne sorprese lisce casarecce ditalini trenne gigli. Lumache perciatelli trenette taglierini rigatoni maltagliati trennette sagne 'ncannulate capunti. Tagliatelle lasagnette pasta al ceppo mezzani pasta cavatelli lagane sorprese fiorentine bavette trofie maccheroncelli pennoni sacchettini mafalde lasagnette quadrefiore. Capelli d'angelo maltagliati trofie capellini pennette sorprese lisce casarecce tortiglioni fedelini occhi di lupo mafaldine pasta al ceppo gnocchi quadrefiore.</p>
+      <%=render 'shared/teammate_assignments'%>
     </div>
   </div>
   <div class="row">
@@ -25,7 +25,7 @@
       <%= link_to 'Edit', edit_teammate_path(@teammate), class: "btn btn-large" %>
     </div>
     <div class="span8">
-      <%= link_to 'Change assignments', '#', class: "btn btn-large" %>
+      <%= link_to 'Change assignments', teammate_assignments_path(@teammate), class: "btn btn-large" %>
     </div>
   </div>
 </div>

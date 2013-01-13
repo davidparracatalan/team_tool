@@ -17,7 +17,7 @@ describe Subteam do
   before do
     @subteam = Subteam.new(name: "cool webs",
                             start_date: Time.now,
-                            foreseen_end_date: Time.now+(3*24*60*60))
+                            foreseen_end_date: 10.days.from_now)
   end
 
   subject{@subteam}
