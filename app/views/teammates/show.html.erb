@@ -4,19 +4,15 @@
 <div class="container">
   <div class="row">
     <div class="span4">
-      <table>
-        <tr>
-          <td>Contracting company</td>
-          <td><%= @teammate.contracting_company %></td>
-        </tr>
-        <tr>
-          <td>Subcontracting company</td>
-          <td><%= @teammate.subcontracting_company%></td>
-        </tr>
-      </table>    
+      <ul>
+        <li>Contracting company: <%= @teammate.contracting_company %></li>
+        <%if @teammate.subcontracting_company && @teammate.subcontracting_company != ""%>
+          <li>Subcontracting company: <%= @teammate.subcontracting_company%></li>
+        <%end%>
+      </ul>    
     </div>
     <div class="span8">
-      <p>Assignments list</p>
+      <h4>Assignments list</h4>
       <%=render 'shared/teammate_assignments'%>
     </div>
   </div>

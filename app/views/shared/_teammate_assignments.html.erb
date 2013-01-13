@@ -1,0 +1,24 @@
+<%if @assignments_for_teammate.empty?%>
+  <div> 
+    <p><%=@teammate.name%> is not assigned to any subteam yet</p>
+    <p>Click the button below to assign <%=@teammate.name%> to a subteam</p>
+  </div>
+<% else %>
+  <div>
+    <p><%=@teammate.name%> is currently assigned to the following subteams</p>
+  </div>
+  <div>
+    <table class="table table-striped">
+      <th>Subteam</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <%@assignments_for_teammate.each do |assignment|%>
+        <tr>
+          <td><%=assignment.subteam.name%></td>
+          <td><%=assignment.start_date.strftime('%d %b %Y')%></td>
+          <td><%=assignment.foreseen_end_date.strftime('%d %b %Y')%></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+<% end %>
