@@ -10,6 +10,6 @@ FactoryGirl.define do
   factory :subteam do
     sequence(:name) {|n| "Team - #{n}"}
     start_date {Time.now}
-    foreseen_end_date {Time.now}
+    foreseen_end_date {5.days.from_now}
   end
 end

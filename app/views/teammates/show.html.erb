@@ -5,9 +5,9 @@
   <div class="row">
     <div class="span4">
       <ul>
-        <li>Contracting company: <%= @teammate.contracting_company %></li>
+        <li><strong>Contracting company:</strong> <%= @teammate.contracting_company %></li>
         <%if @teammate.subcontracting_company && @teammate.subcontracting_company != ""%>
-          <li>Subcontracting company: <%= @teammate.subcontracting_company%></li>
+        <li><strong>Subcontracting company:</strong> <%= @teammate.subcontracting_company%></li>
         <%end%>
       </ul>    
     </div>

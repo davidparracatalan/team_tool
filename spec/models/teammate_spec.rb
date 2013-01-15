@@ -81,4 +81,13 @@ describe Teammate do
       its(:subteams) {should include(subteam)}
     end
   end
+
+  describe "Getting subteams to be assigned" do
+    let(:subteam_1) {FactoryGirl.create(:subteam)}
+    let(:subteam_2) {FactoryGirl.create(:subteam)}
+    before do
+      @teammate.save
+    end
+    its(:subteams_not_assigned_to_me) {should include(subteam_1, subteam_2)}
+  end
 end

@@ -1,7 +1,7 @@
 <%=render "form_errors"%>
 <div>
   <%= f.label :eciidentifier, 'ECI Id'%>
-  <%= f.text_field :eciidentifier%>
+  <%= f.text_field :eciidentifier, :maxlength => 8%>
   <%= f.label :name%>
   <%= f.text_field :name %>
   <%= f.label :last_name%>

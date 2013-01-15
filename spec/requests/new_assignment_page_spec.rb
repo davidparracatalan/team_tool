@@ -30,7 +30,7 @@ describe "New teammate's assignment page" do
       it {should have_field('assignment_start_date')}
       it {should have_field('assignment_foreseen_end_date')}    
       it {should have_button('Assign')}
-      it {should have_selector('select'), id: "assignment_subtea_id"}
+      it {should have_selector('select'), id: "assignment_subteam_id"}
       it {should have_select('assignment_subteam_id')}
     end
     
