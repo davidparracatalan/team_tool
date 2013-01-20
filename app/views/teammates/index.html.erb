@@ -3,7 +3,7 @@
 </div>
 
 <div>
-  <ul class="nav nav-tabs">
+  <ul id="mainTabbedPannel" class="nav nav-tabs">
     <li class="active">
       <a href="#">Teammates</a>
     </li>
@@ -35,12 +35,11 @@
             <li><%= link_to 'Assingments',  teammate_assignments_path(teammate) %></li>
             <li><%= link_to 'View', teammate %></li>
             <li><%= link_to 'Edit', edit_teammate_path(teammate) %></li>
-            <li><%= link_to 'Delete', teammate, method: :delete, data: { confirm: 'Are you sure?' }%></li>
+            <li><%= link_to 'Delete', teammate, method: :delete, confirm: 'Are you sure?'%></li>
           </ul>
         </td>
       </tr>
     <% end %>
   </table>
-
-  <%= link_to 'New Teammate', new_teammate_path, class: "btn" %>
 </div>
+<%= link_to 'New Teammate', new_teammate_path, class: "btn" %>

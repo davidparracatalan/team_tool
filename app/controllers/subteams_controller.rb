@@ -2,6 +2,10 @@ class SubteamsController < ApplicationController
 
   def index
     @subteams = Subteam.all
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def show
