@@ -1,28 +1,6 @@
 <h1>Listing subteams</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Start date</th>
-    <th>Foreseen end date</th>
-    <th>End date</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @subteams.each do |subteam| %>
-  <tr>
-    <td><%= subteam.name %></td>
-    <td><%= subteam.start_date %></td>
-    <td><%= subteam.foreseen_end_date %></td>
-    <td><%= subteam.end_date %></td>
-    <td><%= link_to 'Show', subteam %></td>
-    <td><%= link_to 'Edit', edit_subteam_path(subteam) %></td>
-    <td><%= link_to 'Destroy', subteam, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+<%=render 'subteams_list'%>
 
 <br />
 

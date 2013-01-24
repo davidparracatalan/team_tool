@@ -4,15 +4,11 @@
 
 <div>
   <ul id="mainTabbedPannel" class="nav nav-tabs">
-    <li class="active">
-      <a href="#">Teammates</a>
-    </li>
-    <li>
-      <a href="#">Subteams</a>
-    </li>
+    <li class="active"><%= link_to 'Teammates', teammates_path, remote: true%></li>
+    <li><%= link_to 'Subteams', subteams_path, remote: true%></li>
   </ul>
 </div>
-<div id="table-content">
+<div id="pannel-content">
   <table class="table table-striped">
     <tr>
       <th align="center">Eci Id</th>
