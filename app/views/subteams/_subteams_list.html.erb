@@ -1,12 +1,10 @@
-<table>
+<table class="table table-striped">
   <tr>
     <th>Name</th>
     <th>Start date</th>
     <th>Foreseen end date</th>
     <th>End date</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Actions</th>
   </tr>
 
 <% @subteams.each do |subteam| %>
@@ -15,9 +13,13 @@
     <td><%= subteam.start_date.strftime('%d %b %Y') %></td>
     <td><%= subteam.foreseen_end_date.strftime('%d %b %Y') %></td>
     <td><%= subteam.end_date.strftime('%d %b %Y') %></td>
-    <td><%= link_to 'Show', subteam %></td>
-    <td><%= link_to 'Edit', edit_subteam_path(subteam) %></td>
-    <td><%= link_to 'Destroy', subteam, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td>
+      <ul class="nav nav-pills">
+        <li><%= link_to 'Show', subteam %></li>
+        <li><%= link_to 'Edit', edit_subteam_path(subteam) %></li>
+        <li><%= link_to 'Destroy', subteam, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+      </ul>
+    </td>
   </tr>
 <% end %>
 </table>
