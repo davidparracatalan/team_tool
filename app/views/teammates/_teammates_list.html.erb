@@ -11,10 +11,10 @@
   <% @teammates.each do |teammate| %>
     <tr>
       <td><%= teammate.eciidentifier %></td>
-      <td><%= teammate.name %></td>
-      <td><%= teammate.last_name %></td>
-      <td><%= teammate.contracting_company %></td>
-      <td><%= teammate.subcontracting_company  %></td>
+      <td><%= truncate teammate.name %></td>
+      <td><%= truncate teammate.last_name %></td>
+      <td><%= truncate teammate.contracting_company %></td>
+      <td><%= truncate teammate.subcontracting_company  %></td>
       <td>
         <ul class="nav nav-pills">
           <li><%= link_to 'Assingments',  teammate_assignments_path(teammate) %></li>
