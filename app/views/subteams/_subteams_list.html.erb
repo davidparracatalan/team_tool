@@ -9,7 +9,7 @@
 
 <% @subteams.each do |subteam| %>
   <tr>
-    <td><%= truncate subteam.name %></td>
+    <td><%= subteam.name.truncate(50) %></td>
     <td><%= subteam.start_date.strftime('%d %b %Y') %></td>
     <td><%= subteam.foreseen_end_date.strftime('%d %b %Y') %></td>
     <td><%= subteam.end_date.strftime('%d %b %Y') %></td>
