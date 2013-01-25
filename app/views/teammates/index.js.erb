@@ -1,1 +1,1 @@
-$('#pannel-content').html('<div>Updated pannel teammates</div>');
+$('#pannel-content').html('<%= escape_javascript(render :partial => "teammates_list" )%>');

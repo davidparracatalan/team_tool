@@ -21,7 +21,7 @@ jQuery(function($){
   $('#mainTabbedPannel a').click(function (e) {
     e.preventDefault();
     $('#mainTabbedPannel li.active').removeClass("active");
-    $(this).parent('li').addClass('active')
+    $(this).parent('li').addClass('active');
   })
 });
 
