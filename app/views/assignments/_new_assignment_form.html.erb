@@ -1,0 +1,31 @@
+<div>
+  <%if @available_subteams.empty?%>
+    <div> 
+      <h3>Sorry, you can't assign <%=@teammate.name%> to any subteam because there's no one available now</h1>
+    </div>
+  <%else%>
+    <div> 
+      <h3>Please, select the subteam and set the dates</h3>
+    </div>
+    <%= form_for [:teammate, @assignment], :remote=> true do |f|%>
+      <div class="row">
+        <%= f.hidden_field :teammate_id, :value => @teammate.id %>
+        <div class="span3">
+          <%= f.label :subteam %>
+          <%= f.collection_select(:subteam_id, @available_subteams, :id, :name) %>
+        </div>
+        <div class="span3">
+          <%= f.label :start_date%>
+          <%= f.text_field :start_date, class: "datepicker"%>
+        </div>
+        <div class="span3">
+          <%= f.label :foreseen_end_date%>
+          <%= f.text_field :foreseen_end_date, class: "datepicker"%>
+        </div>
+      </div>
+      <div>
+        <%= f.submit "Assign", class: "btn"%>
+      </div>
+    <%end%>
+  <%end%>
+</div>

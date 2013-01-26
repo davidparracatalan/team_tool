@@ -17,7 +17,6 @@
 //= require_tree .
 
 jQuery(function($){ 
-  $('input.datepicker').datepicker({"autoclose": true, "format": 'dd/mm/yyyy', "weekStart": 1});
   $('#mainTabbedPannel a').click(function (e) {
     e.preventDefault();
     $('#mainTabbedPannel li.active').removeClass("active");

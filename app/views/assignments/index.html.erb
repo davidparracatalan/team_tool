@@ -30,6 +30,8 @@
   </div>
 <% end %>
 <div>
-  <%= link_to "Assign #{@teammate.name} to a new subteam...", new_teammate_assignment_path(@teammate) %>
+  <%= link_to "Assign #{@teammate.name} to a new subteam...", new_teammate_assignment_path(@teammate), remote:true %>
+</div>
+<div id="assignment_partial">
 </div>
 <br />
