@@ -7,7 +7,9 @@
       <ul>
         <li><strong>Contracting company:</strong> <%= @teammate.contracting_company %></li>
         <%if @teammate.subcontracting_company && @teammate.subcontracting_company != ""%>
-        <li><strong>Subcontracting company:</strong> <%= @teammate.subcontracting_company%></li>
+          <li><strong>Subcontracting company:</strong> <%= @teammate.subcontracting_company%></li>
+        <%else%>
+          <li><strong>No subcontracting company</strong></li>
         <%end%>
       </ul>    
     </div>
@@ -18,10 +20,10 @@
   </div>
   <div class="row">
     <div class="span4">
-      <%= link_to 'Edit', edit_teammate_path(@teammate), class: "btn btn-large" %>
+      <%= link_to 'Edit mate', edit_teammate_path(@teammate), class: "btn" %>
     </div>
     <div class="span8">
-      <%= link_to 'Change assignments', teammate_assignments_path(@teammate), class: "btn btn-large" %>
+      <%= link_to 'Change assignments', teammate_assignments_path(@teammate), class: "btn" %>
     </div>
   </div>
 </div>

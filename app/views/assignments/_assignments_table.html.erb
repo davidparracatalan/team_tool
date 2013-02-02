@@ -1,0 +1,11 @@
+<div>
+  <table class="table table-striped" id="assignments_table">
+    <th>Subteam</th>
+    <th>Start Date</th>
+    <th>End Date</th>
+    <th>Unassign</th>
+    <%@assignments_for_teammate.each do |assignment|%>
+      <%=render 'assignments_list_row', assignment: assignment%>
+    <% end %>
+  </table>
+</div>

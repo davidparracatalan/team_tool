@@ -12,10 +12,16 @@ class AssignmentsController < ApplicationController
     @teammate = Teammate.find(params[:assignment][:teammate_id])
     @available_subteams = @teammate.subteams_not_assigned_to_me
     
-    if @assignment.save      
-      redirect_to teammate_assignments_path(@teammate)
+    if @assignment.save
+      respond_to do |format|
+        format.js
+        format.html {redirect_to teammate_assignments_path(@teammate)}
+      end
     else
-      render :new
+      respond_to do |format|
+        format.js { render :partial => 'error' }
+        format.html {render :new}
+      end
     end
   end
 

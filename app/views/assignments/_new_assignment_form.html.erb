@@ -23,8 +23,9 @@
           <%= f.text_field :foreseen_end_date, class: "datepicker"%>
         </div>
       </div>
-      <div>
+      <div id="form_buttons_container">
         <%= f.submit "Assign", class: "btn"%>
+        <span class="btn" id="assign_cancel">Cancel</span>
       </div>
     <%end%>
   <%end%>

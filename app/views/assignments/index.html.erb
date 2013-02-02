@@ -10,27 +10,11 @@
   <div>
     <h3><%=@teammate.name%> is currently assigned to the following subteams</h3>
   </div>
-  <div>
-    <table class="table table-striped">
-      <th>Subteam</th>
-      <th>Start Date</th>
-      <th>End Date</th>
-      <th>Unassign</th>
-      <%@assignments_for_teammate.each do |assignment|%>
-      <tr>
-         <%= form_for assignment, :html => {:method => :delete} do |f|%>      
-            <td class="subteam_title"><%=assignment.subteam.name%></td>
-            <td><%=assignment.start_date.strftime('%d %b %Y')%></td>
-            <td><%=assignment.foreseen_end_date.strftime('%d %b %Y')%></td>
-            <td><%=f.submit "Unassign", class: "btn", :onclick => "return confirm('Are you sure?')"%></td>
-        <% end %>
-      <tr>
-      <% end %>
-    </table>
-  </div>
 <% end %>
+<%=render 'assignments_table'%>
 <div>
-  <%= link_to "Assign #{@teammate.name} to a new subteam...", new_teammate_assignment_path(@teammate), remote:true %>
+  <%= link_to "Assign #{@teammate.name} to a new subteam...", new_teammate_assignment_path(@teammate), 
+                                                                            class: "btn", remote:true %>
 </div>
 <div id="assignment_partial">
 </div>
