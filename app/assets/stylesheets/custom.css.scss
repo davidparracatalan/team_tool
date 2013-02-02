@@ -2,8 +2,7 @@
 
 body {
     padding-top: 100px;
-    background-image: image-url("vintagevignette3.jpg");
-
+    background-image: image-url("fabric.jpg");
 }
 
 h1 {
@@ -61,10 +60,6 @@ label{
   }
 }
 
-#pannel-content{
-  margin-top: 5px;
-}
-
 .subteam_title{
   width: 30%;
 }
@@ -88,6 +83,10 @@ label{
 .footer_text{
   padding-top: 10px;
   color: white;
+}
+
+#pannel-content{
+  margin-top: 5px;
 }
 
 #form_buttons_container{
