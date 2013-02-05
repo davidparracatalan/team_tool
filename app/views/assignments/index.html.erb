@@ -14,8 +14,5 @@
 <%=render 'assignments_table'%>
 <div>
   <%= link_to "Assign #{@teammate.name} to a new subteam...", new_teammate_assignment_path(@teammate), 
-                                                                            class: "btn", remote:true %>
+                                                                            class: "btn"%>
 </div>
-<div id="assignment_partial">
-</div>
-<br />

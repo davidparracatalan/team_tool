@@ -1,29 +1,33 @@
-<table class="table table-striped">
-  <tr>
-    <th>Eci Id</th>
-    <th>Name</th>
-    <th>Last name</th>
-    <th>Contracting company</th>
-    <th>Subcontracting company</th>
-    <th>Actions</th>
-  </tr>
-
-  <% @teammates.each do |teammate| %>
+<% if @teammates.empty?%>
+<div class="lead">There are no teammates. Please click the button below to create a new mate</div>
+<%else%>
+  <table class="table table-striped">
     <tr>
-      <td><%= teammate.eciidentifier %></td>
-      <td><%= truncate teammate.name %></td>
-      <td><%= truncate teammate.last_name %></td>
-      <td><%= truncate teammate.contracting_company %></td>
-      <td><%= truncate teammate.subcontracting_company  %></td>
-      <td>
-        <ul class="nav nav-pills">
-          <li><%= link_to 'Assingments',  teammate_assignments_path(teammate) %></li>
-          <li><%= link_to 'View', teammate %></li>
-          <li><%= link_to 'Edit', edit_teammate_path(teammate) %></li>
-          <li><%= link_to 'Delete', teammate, method: :delete, confirm: 'Are you sure?'%></li>
-        </ul>
-      </td>
+      <th>Eci Id</th>
+      <th>Name</th>
+      <th>Last name</th>
+      <th>Contracting company</th>
+      <th>Subcontracting company</th>
+      <th>Actions</th>
     </tr>
-  <% end %>
-</table>
+
+    <% @teammates.each do |teammate| %>
+      <tr>
+        <td><%= teammate.eciidentifier %></td>
+        <td><%= truncate teammate.name %></td>
+        <td><%= truncate teammate.last_name %></td>
+        <td><%= truncate teammate.contracting_company %></td>
+        <td><%= truncate teammate.subcontracting_company  %></td>
+        <td>
+          <ul class="nav nav-pills">
+            <li><%= link_to 'Assingments',  teammate_assignments_path(teammate) %></li>
+            <li><%= link_to 'View', teammate %></li>
+            <li><%= link_to 'Edit', edit_teammate_path(teammate) %></li>
+            <li><%= link_to 'Delete', teammate, method: :delete, confirm: 'Are you sure?'%></li>
+          </ul>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+<%end%>
 <%= link_to 'New Teammate', new_teammate_path, class: "btn" %>

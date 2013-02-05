@@ -22,5 +22,6 @@ jQuery(function($){
     $('#mainTabbedPannel li.active').removeClass("active");
     $(this).parent('li').addClass('active');
   })
+  $('input.datepicker').datepicker({"autoclose": true, "format": 'dd/mm/yyyy', "weekStart": 1});
 });
 

@@ -13,15 +13,9 @@ class AssignmentsController < ApplicationController
     @available_subteams = @teammate.subteams_not_assigned_to_me
     
     if @assignment.save
-      respond_to do |format|
-        format.js
-        format.html {redirect_to teammate_assignments_path(@teammate)}
-      end
+      redirect_to teammate_assignments_path(@teammate)
     else
-      respond_to do |format|
-        format.js { render :partial => 'error' }
-        format.html {render :new}
-      end
+      render action: "new"
     end
   end
 

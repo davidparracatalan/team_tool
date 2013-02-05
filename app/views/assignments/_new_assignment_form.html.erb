@@ -7,7 +7,7 @@
     <div> 
       <h3>Please, select the subteam and set the dates</h3>
     </div>
-    <%= form_for [:teammate, @assignment], :remote=> true do |f|%>
+    <%= form_for [:teammate, @assignment] do |f|%>
       <div class="row">
         <%= f.hidden_field :teammate_id, :value => @teammate.id %>
         <div class="span3">
@@ -25,7 +25,7 @@
       </div>
       <div id="form_buttons_container">
         <%= f.submit "Assign", class: "btn"%>
-        <span class="btn" id="assign_cancel">Cancel</span>
+        <%= link_to 'Cancel', teammate_assignments_path(@teammate), class: "btn"%>
       </div>
     <%end%>
   <%end%>
