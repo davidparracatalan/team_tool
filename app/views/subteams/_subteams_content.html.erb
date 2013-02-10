@@ -12,7 +12,7 @@
     <td><%= subteam.name.truncate(50) %></td>
     <td><%= subteam.start_date.strftime('%d %b %Y') %></td>
     <td><%= subteam.foreseen_end_date.strftime('%d %b %Y') %></td>
-    <td><%= subteam.end_date.strftime('%d %b %Y') %></td>
+    <td><%= subteam.end_date.strftime('%d %b %Y') unless subteam.end_date.nil?%></td>
     <td>
       <ul class="nav nav-pills">
         <li><%= link_to 'View', subteam %></li>

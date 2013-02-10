@@ -1,21 +1,20 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
-gem 'will_paginate', '~> 3.0.0'
 gem 'jquery-rails', '2.0.2'
 gem "rack", "1.4.1"
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'
   gem 'annotate', '~> 2.4.1.beta'
+  gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'meta_request', '0.2.1' 
 end
 
 group :assets do
   gem 'bootstrap-sass', '2.0.0'
-  gem 'bootstrap-will_paginate', '0.0.6'
   gem 'sass-rails',   '3.2.5'
-  gem 'coffee-rails', '3.2.2'
   gem 'uglifier', '1.2.3'
   gem 'bootstrap-datepicker-rails'
 end
