@@ -15,8 +15,8 @@
       <%@assignments_for_teammate.each do |assignment|%>
         <tr>
           <td><%=assignment.subteam.name%></td>
-          <td><%=assignment.start_date.strftime('%d %b %Y')%></td>
-          <td><%=assignment.foreseen_end_date.strftime('%d %b %Y')%></td>
+          <td><%=endDateUnlessEmpty assignment.start_date%></td>
+          <td><%=endDateUnlessEmpty assignment.foreseen_end_date%></td>
         </tr>
       <% end %>
     </table>

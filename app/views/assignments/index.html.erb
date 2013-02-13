@@ -1,9 +1,9 @@
 <div class="page-header">
-  <h1><%=@teammate.name%>'s assignments</h1>
+  <h1><%=link_to "#{@teammate.name}", @teammate%>'s assignments</h1>
 </div>
 <%if @assignments_for_teammate.empty?%>
   <div> 
-    <h3><%=@teammate.name%> is not assigned to any subteam yet</h1>
+    <h3><%=link_to "#{@teammate.name}", @teammate%> is not assigned to any subteam yet</h1>
     <h3>Click the link below to assign <%=@teammate.name%> to a subteam</h3>
   </div>
 <% else %>

@@ -9,10 +9,10 @@
 
 <% @subteams.each do |subteam| %>
   <tr>
-    <td><%= subteam.name.truncate(50) %></td>
-    <td><%= subteam.start_date.strftime('%d %b %Y') %></td>
-    <td><%= subteam.foreseen_end_date.strftime('%d %b %Y') %></td>
-    <td><%= subteam.end_date.strftime('%d %b %Y') unless subteam.end_date.nil?%></td>
+    <td class="subteam_title"><%= subteam.name%></td>
+    <td><%= endDateUnlessEmpty subteam.start_date%></td>
+    <td><%= endDateUnlessEmpty subteam.foreseen_end_date%></td>
+    <td><%=endDateUnlessEmpty subteam.end_date%></td>
     <td>
       <ul class="nav nav-pills">
         <li><%= link_to 'View', subteam %></li>

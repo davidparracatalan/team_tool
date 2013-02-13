@@ -1,8 +1,8 @@
 <tr>
   <%= form_for assignment, :html => {:method => :delete} do |f|%>      
-    <td class="subteam_title"><%=assignment.subteam.name%></td>
-    <td><%=assignment.start_date.strftime('%d %b %Y')%></td>
-    <td><%=assignment.foreseen_end_date.strftime('%d %b %Y')%></td>
+    <td class="subteam_title"><%= link_to "#{assignment.subteam.name}", assignment.subteam%></td>
+    <td><%=endDateUnlessEmpty assignment.start_date%></td>
+    <td><%=endDateUnlessEmpty assignment.foreseen_end_date%></td>
     <td><%=f.submit "Unassign", class: "btn", :onclick => "return confirm('Are you sure?')"%></td>
   <% end %>
 <tr>

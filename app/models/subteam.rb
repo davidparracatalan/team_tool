@@ -23,6 +23,6 @@ class Subteam < ActiveRecord::Base
   has_many :teammates, :through => :assignments
 
   scope :active, lambda { where("end_date is null or end_date >= ?", Time.now)}
-  scope :not_assigned, where("subteams.id NOT IN (select subteam_id from assignments)")
+  scope :has_no_assignments, where("subteams.id NOT IN (select subteam_id from assignments)")
 
 end

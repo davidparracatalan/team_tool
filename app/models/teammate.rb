@@ -34,10 +34,8 @@ class Teammate < ActiveRecord::Base
   end
 
   def subteams_not_assigned_to_me
-    Subteam.active.not_assigned + 
+    Subteam.active.has_no_assignments + 
     Subteam.active.where(id: Assignment.select("subteam_id").where("teammate_id != ?", id))
-#    Subteam.where(id: Assignment.select("subteam_id").where("teammate_id != ?", id)) + 
-#    Subteam.where("subteams.id NOT IN (select subteam_id from assignments)")
   end
 
 end
