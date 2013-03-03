@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def endDateUnlessEmpty date
+  def dateUnlessEmpty date
     if date.nil?
       "Don't know yet"
     else

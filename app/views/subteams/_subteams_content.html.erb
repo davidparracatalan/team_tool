@@ -4,18 +4,17 @@
     <th>Start date</th>
     <th>Foreseen end date</th>
     <th>End date</th>
-    <th>Actions</th>
+    <th></th>
   </tr>
 
 <% @subteams.each do |subteam| %>
   <tr>
-    <td class="subteam_title"><%= subteam.name%></td>
-    <td><%= endDateUnlessEmpty subteam.start_date%></td>
-    <td><%= endDateUnlessEmpty subteam.foreseen_end_date%></td>
-    <td><%=endDateUnlessEmpty subteam.end_date%></td>
+    <td><%= link_to "#{truncate subteam.name}", subteam %></td>
+    <td><%= dateUnlessEmpty subteam.start_date%></td>
+    <td><%= dateUnlessEmpty subteam.foreseen_end_date%></td>
+    <td><%=dateUnlessEmpty subteam.end_date%></td>
     <td>
       <ul class="nav nav-pills">
-        <li><%= link_to 'View', subteam %></li>
         <li><%= link_to 'Edit', edit_subteam_path(subteam) %></li>
         <li><%= link_to 'Delete', subteam, method: :delete, data: { confirm: 'Are you sure?' } %></li>
       </ul>

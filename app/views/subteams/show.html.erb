@@ -7,17 +7,17 @@
 
 <p>
   <b>Start date:</b>
-  <%= endDateUnlessEmpty @subteam.start_date%>
+  <%= dateUnlessEmpty @subteam.start_date%>
 </p>
 
 <p>
   <b>Foreseen end date:</b>
-  <%= endDateUnlessEmpty @subteam.foreseen_end_date %>
+  <%= dateUnlessEmpty @subteam.foreseen_end_date %>
 </p>
 
 <p>
   <b>End date:</b>
-  <%=endDateUnlessEmpty @subteam.end_date %>
+  <%=dateUnlessEmpty @subteam.end_date %>
 </p>
 
 
