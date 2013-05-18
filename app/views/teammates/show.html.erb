@@ -1,15 +1,13 @@
 <div class="page-header">
-  <h1><%=@teammate.name+' '+@teammate.last_name%></h1>
+  <h1><%=@teammate.name+' '+@teammate.last_name+' ('+@teammate.eciidentifier+')'%></h1>
 </div>
 <div class="container">
   <div class="row">
     <div class="span4">
       <ul>
-        <li><strong>Contracting company:</strong> <%= @teammate.contracting_company %></li>
+        <li><h4>Company:</h4> <%= @teammate.contracting_company %></li>
         <%if @teammate.subcontracting_company && @teammate.subcontracting_company != ""%>
-          <li><strong>Subcontracting company:</strong> <%= @teammate.subcontracting_company%></li>
-        <%else%>
-          <li><strong>No subcontracting company</strong></li>
+          <li><h4>Subcontracting company:</h4> <%= @teammate.subcontracting_company%></li>        
         <%end%>
       </ul>    
     </div>
@@ -24,6 +22,7 @@
     </div>
     <div class="span8">
       <%= link_to 'Change assignments', teammate_assignments_path(@teammate), class: "btn" %>
+      <%= link_to 'Back to home...', root_path, class: "btn"%>
     </div>
   </div>
 </div>

@@ -7,6 +7,7 @@
     <%= render 'fields', f: f %>
     <div>
       <%= f.submit "Update", class: "btn" %>
+      <%= link_to "Cancel", @teammate, class: "btn"%>
     </div>
     <% end %>
   </div>

@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1><%=link_to "#{@teammate.name}", @teammate%>'s assignments</h1>
+  <h1><%=@teammate.name%>'s assignments</h1>
 </div>
 <%if @assignments_for_teammate.empty?%>
   <div> 
@@ -15,4 +15,6 @@
 <div>
   <%= link_to "Assign #{@teammate.name} to a new subteam...", new_teammate_assignment_path(@teammate), 
                                                                             class: "btn"%>
+  <%= link_to "Back to #{@teammate.name}'s page", @teammate, class: "btn"%>
+  <%= link_to "Back to home...", root_path, class: "btn"%>
 </div>
