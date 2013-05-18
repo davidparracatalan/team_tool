@@ -14,7 +14,7 @@
       <th>End Date</th>
       <%@assignments_for_teammate.each do |assignment|%>
         <tr>
-          <td><%=assignment.subteam.name%></td>
+          <td><%=truncate assignment.subteam.name%></td>
           <td><%=dateUnlessEmpty assignment.start_date%></td>
           <td><%=dateUnlessEmpty assignment.foreseen_end_date%></td>
         </tr>

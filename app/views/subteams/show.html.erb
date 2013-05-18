@@ -1,25 +1,21 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name:</b>
-  <%= @subteam.name %>
-</p>
-
-<p>
-  <b>Start date:</b>
-  <%= dateUnlessEmpty @subteam.start_date%>
-</p>
-
-<p>
-  <b>Foreseen end date:</b>
-  <%= dateUnlessEmpty @subteam.foreseen_end_date %>
-</p>
-
-<p>
-  <b>End date:</b>
-  <%=dateUnlessEmpty @subteam.end_date %>
-</p>
-
-
-<%= link_to 'Edit', edit_subteam_path(@subteam) %> |
-<%= link_to 'Back', subteams_path %>
+<div class="page-header">
+  <h1><%= @subteam.name %></h1>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="span4">
+      <ul>
+        <li><strong>Start date: </strong><%= dateUnlessEmpty @subteam.start_date%></li>
+        <li><strong>Foreseen end date: </strong><%= dateUnlessEmpty @subteam.foreseen_end_date %></li>
+        <li><strong>End date: </strong><%=dateUnlessEmpty @subteam.end_date %></li>
+      </ul>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="span4">
+      <%= link_to 'Edit', edit_subteam_path(@subteam), class: "btn" %>
+      <%= link_to 'Back', root_path, class: "btn" %>
+    </div>
+  </div>
+</div>
